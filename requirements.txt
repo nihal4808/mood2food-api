@@ -1,3 +1,4 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
 annotated-doc==0.0.4
 annotated-types==0.7.0
 anyio==4.13.0
@@ -23,8 +24,8 @@ networkx==3.6.1
 numpy==2.4.4
 packaging==26.1
 pandas==3.0.2
-pydantic==2.13.0
-pydantic_core==2.46.0
+pydantic==2.13.1
+pydantic_core==2.46.1
 Pygments==2.20.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
@@ -42,7 +43,7 @@ starlette==1.0.0
 sympy==1.14.0
 threadpoolctl==3.6.0
 tokenizers==0.22.2
-torch==2.11.0+cpu
+torch==2.11.0
 tqdm==4.67.3
 transformers==5.5.4
 typer==0.24.1
