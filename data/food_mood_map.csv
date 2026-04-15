@@ -1,0 +1,64 @@
+food_name,cuisine,diet_type,mood_tags,nutrients,meal_time,mood_score_weight
+Masala Dosa,South Indian,veg,joy;neutral,carbs;protein;fiber,breakfast,0.92
+Idli Sambar,South Indian,veg,neutral;sadness,carbs;protein;fiber,breakfast,0.90
+Poha,West Indian,vegan,joy;surprise,carbs;iron;fiber,breakfast,0.88
+Upma,South Indian,vegan,neutral;joy,carbs;protein;fiber,breakfast,0.84
+Paneer Tikka,North Indian,veg,joy;surprise,protein;calcium;fat,lunch,0.95
+Chole Bhature,North Indian,veg,joy;anger,carbs;protein;iron,lunch,0.86
+Dal Khichdi,North Indian,vegan,sadness;neutral,carbs;protein;fiber,dinner,0.93
+Rajma Chawal,North Indian,vegan,sadness;neutral,carbs;protein;iron,lunch,0.91
+Vegetable Biryani,Hyderabadi,vegan,joy;surprise,carbs;fiber;iron,lunch,0.87
+Chicken Biryani,Hyderabadi,nonveg,joy;anger,protein;fat;iron,lunch,0.89
+Butter Chicken,North Indian,nonveg,joy;surprise,protein;fat;calcium,dinner,0.88
+Fish Curry,Coastal Indian,nonveg,sadness;neutral,protein;omega-3;iron,dinner,0.86
+Aloo Paratha,North Indian,veg,neutral;joy,carbs;protein;fiber,breakfast,0.83
+Pav Bhaji,Street Food,veg,joy;surprise,carbs;vitamin C;fiber,evening,0.89
+Vada Pav,Street Food,vegan,anger;joy,carbs;fiber;fat,evening,0.84
+Dahi Puri,Street Food,veg,surprise;joy,carbs;protein;probiotics,evening,0.80
+Samosa,Street Food,vegan,anger;surprise,carbs;fat;fiber,snack,0.78
+Methi Thepla,Gujarati,vegan,neutral;joy,carbs;fiber;iron,breakfast,0.85
+Kanda Poha,West Indian,vegan,joy;neutral,carbs;iron;fiber,breakfast,0.86
+Egg Bhurji,North Indian,nonveg,anger;joy,protein;fat;vitamin D,breakfast,0.87
+Tandoori Chicken,North Indian,nonveg,anger;surprise,protein;iron;fat,dinner,0.90
+Mutton Rogan Josh,Kashmiri,nonveg,sadness;anger,protein;iron;fat,dinner,0.82
+Palak Paneer,North Indian,veg,neutral;sadness,protein;iron;calcium,lunch,0.91
+Ghee Roast Dosa,South Indian,veg,joy;surprise,carbs;fat;protein,breakfast,0.81
+Ragi Porridge,South Indian,vegan,neutral;sadness,carbs;calcium;fiber,breakfast,0.92
+Sprouts Salad,Healthy,vegan,joy;neutral,protein;fiber;iron,any,0.94
+Fruit Chaat,Healthy,vegan,surprise;joy,vitamin C;fiber;water,snack,0.88
+Coconut Rice,South Indian,vegan,neutral;joy,carbs;fat;fiber,lunch,0.83
+Curd Rice,South Indian,veg,sadness;neutral,carbs;probiotics;calcium,lunch,0.89
+Baingan Bharta,North Indian,vegan,neutral;disgust,fiber;vitamin C;iron,lunch,0.79
+Bhindi Masala,North Indian,vegan,joy;neutral,fiber;iron;vitamin C,lunch,0.84
+Litti Chokha,Bihari,veg,anger;neutral,carbs;protein;fiber,lunch,0.85
+Dhokla,Gujarati,veg,joy;surprise,protein;carbs;probiotics,breakfast,0.90
+Khaman,Gujarati,veg,joy;neutral,protein;carbs;probiotics,breakfast,0.88
+Veg Momos,Tibetan-Indian,vegan,surprise;joy,carbs;fiber;vitamin C,evening,0.82
+Chicken Momos,Tibetan-Indian,nonveg,surprise;anger,protein;fat;iron,evening,0.84
+Mushroom Masala,North Indian,vegan,disgust;neutral,protein;fiber;potassium,dinner,0.80
+Pesarattu,Andhra,vegan,joy;neutral,protein;fiber;iron,breakfast,0.87
+Akki Roti,Karnataka,vegan,neutral;sadness,carbs;fiber;iron,breakfast,0.81
+Nimbu Pani,Indian Beverage,vegan,surprise;joy,vitamin C;water;sodium;potassium,any,0.76
+Masala Chai,Indian Beverage,vegan,anger;neutral,caffeine;polyphenols;water,any,0.74
+Paneer Bhurji,North Indian,veg,joy;neutral,protein;calcium;fat,breakfast,0.89
+Veg Thali,Indian,veg,neutral;joy,carbs;protein;fiber;iron,lunch,0.93
+Nonveg Thali,Indian,nonveg,joy;surprise,carbs;protein;iron;fat,lunch,0.90
+Sattu Paratha,Bihari,vegan,neutral;joy,protein;fiber;iron,breakfast,0.86
+Makai Ka Cheela,North Indian,vegan,joy;neutral,carbs;fiber;vitamin C,breakfast,0.85
+Corn Chaat,Street Food,vegan,surprise;joy,carbs;fiber;vitamin C,evening,0.82
+Lemon Rice,South Indian,vegan,neutral;joy,carbs;vitamin C;fiber,lunch,0.84
+Tomato Soup,Continental-Indian,vegan,sadness;neutral,vitamin C;lycopene;water,dinner,0.79
+Medu Vada,South Indian,veg,joy;surprise,protein;fat;iron,breakfast,0.83
+Moong Dal Soup,Healthy Indian,vegan,fear;neutral,protein;fiber;magnesium,dinner,0.91
+Steamed Rice Kanji,South Indian,vegan,fear;anxiety;neutral,carbs;water;sodium;potassium,dinner,0.88
+Banana Almond Smoothie,Healthy Indian,veg,fear;anxiety;joy,potassium;magnesium;protein,breakfast,0.87
+Rasam,South Indian,vegan,sadness;neutral,vitamin C;sodium;potassium,dinner,0.88
+Masoor Dal Tadka,North Indian,vegan,neutral;joy,protein;iron;fiber,lunch,0.90
+Karela Sabzi,North Indian,vegan,disgust;neutral,fiber;vitamin C;potassium,lunch,0.80
+Misal Pav,Maharashtrian,veg,anger;joy,protein;fiber;iron,snack,0.86
+Paniyaram,South Indian,veg,surprise;joy,carbs;protein;fiber,breakfast,0.84
+Kheer (Rice Pudding),North Indian,veg,joy;neutral,carbs;calcium;protein,snack,0.82
+Chicken Clear Soup,Indian,nonveg,fear;neutral,protein;sodium;potassium;water,dinner,0.87
+Keema Pav,Street Food,nonveg,anger;joy,protein;iron;fat,snack,0.83
+Prawn Curry,Coastal Indian,nonveg,surprise;joy,protein;omega-3;iron,dinner,0.85
+Vegetable Clear Soup,Indian,vegan,neutral;sadness,vitamin C;water;fiber,dinner,0.83
