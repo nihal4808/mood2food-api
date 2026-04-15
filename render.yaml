@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: mood2food-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: USDA_API_KEY
+        sync: false
