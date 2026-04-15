@@ -22,6 +22,13 @@ app.add_middleware(
 app.include_router(recommend_router)
 
 
+@app.get("/", tags=["System"])
+def root() -> dict:
+    """Return a root status payload for platform health checks."""
+
+    return {"status": "ok", "service": "mood2food-api"}
+
+
 @app.get("/health", tags=["System"])
 def health_check() -> dict:
     """Return a simple health status payload."""
