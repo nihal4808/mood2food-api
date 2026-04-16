@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 EMOTION_MODEL_NAME = "j-hartmann/emotion-english-distilroberta-base"
-HF_INFERENCE_URL = f"https://api-inference.huggingface.co/models/{EMOTION_MODEL_NAME}"
+HF_INFERENCE_URL = f"https://router.huggingface.co/hf-inference/models/{EMOTION_MODEL_NAME}"
 SUPPORTED_EMOTIONS = {
     "joy",
     "sadness",
