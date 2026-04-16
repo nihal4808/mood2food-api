@@ -23,20 +23,65 @@ SUPPORTED_EMOTIONS = {
 }
 
 
-def _normalize_inference_response(payload: Any) -> List[Dict[str, Any]]:
-    """Normalize HuggingFace Inference API responses into a flat list of predictions."""
+def _extract_emotions(result: Any) -> List[Dict[str, Any]]:
+    """Extract the list of emotion predictions from a HF Inference API response."""
 
     try:
-        if isinstance(payload, list) and payload:
-            first_item = payload[0]
-            if isinstance(first_item, dict):
-                return payload
-            if isinstance(first_item, list):
-                return first_item
+        # Common shape: [[{"label": "joy", "score": 0.8}, ...]]
+        if isinstance(result, list) and result:
+            if isinstance(result[0], list):
+                emotions = result[0]
+            else:
+                emotions = result
+        else:
+            emotions = []
+
+        if not isinstance(emotions, list):
+            return []
+
+        normalized: List[Dict[str, Any]] = []
+        for item in emotions:
+            if isinstance(item, dict) and "label" in item and "score" in item:
+                normalized.append(item)
+        return normalized
     except Exception:
         return []
 
-    return []
+
+def _call_hf_inference(text: str, token: str, *, retry_on_loading: bool) -> Any:
+    """Call the HF Inference API and optionally retry once if the model is loading."""
+
+    try:
+        response = requests.post(
+            HF_INFERENCE_URL,
+            headers={"Authorization": f"Bearer {token}"},
+            json={"inputs": text},
+            timeout=20,
+        )
+
+        payload: Any
+        try:
+            payload = response.json()
+        except Exception:
+            payload = None
+
+        # When the model is spinning up, API often returns a dict with estimated_time.
+        if isinstance(payload, dict) and "estimated_time" in payload and retry_on_loading:
+            try:
+                import time
+
+                wait_seconds = float(payload.get("estimated_time") or 0.0)
+                time.sleep(max(0.0, min(wait_seconds, 12.0)))
+            except Exception:
+                pass
+            return _call_hf_inference(text, token, retry_on_loading=False)
+
+        if response.status_code != 200:
+            return payload
+
+        return payload
+    except Exception:
+        return None
 
 
 def detect_emotion(text: str) -> Dict[str, float | str]:
@@ -50,34 +95,22 @@ def detect_emotion(text: str) -> Dict[str, float | str]:
         return {"emotion": "neutral", "confidence": 0.0}
 
     try:
-        response = requests.post(
-            HF_INFERENCE_URL,
-            headers={"Authorization": f"Bearer {token}"},
-            json={"inputs": text},
-            timeout=15,
-        )
+        result = _call_hf_inference(text, token, retry_on_loading=True)
 
-        if response.status_code != 200:
+        if isinstance(result, dict) and result.get("error"):
             return {"emotion": "neutral", "confidence": 0.0}
 
-        raw_payload: Any = response.json()
-
-        if isinstance(raw_payload, dict) and raw_payload.get("error"):
+        emotions = _extract_emotions(result)
+        if not emotions:
             return {"emotion": "neutral", "confidence": 0.0}
 
-        predictions = _normalize_inference_response(raw_payload)
-        if not predictions:
-            return {"emotion": "neutral", "confidence": 0.0}
-
-        best_prediction = max(predictions, key=lambda item: float(item.get("score", 0.0)))
-        label = str(best_prediction.get("label", "neutral")).lower().strip()
-        confidence = float(best_prediction.get("score", 0.0))
+        top = max(emotions, key=lambda x: float(x.get("score", 0.0)))
+        label = str(top.get("label", "neutral")).lower().strip()
+        confidence = float(top.get("score", 0.0))
 
         if label not in SUPPORTED_EMOTIONS:
             label = "neutral"
 
         return {"emotion": label, "confidence": round(confidence, 4)}
-    except requests.RequestException:
-        return {"emotion": "neutral", "confidence": 0.0}
     except Exception:
         return {"emotion": "neutral", "confidence": 0.0}
