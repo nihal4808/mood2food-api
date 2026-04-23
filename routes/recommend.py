@@ -179,7 +179,9 @@ def _build_why_it_fits(food_row: Dict[str, Any], emotion: str, time_of_day: str,
         if nutrition.get("available"):
             calories = nutrition.get("calories")
             protein = nutrition.get("protein")
-            nutrition_note = f" USDA data indicates about {calories} kcal and {protein} g protein per 100g."
+            source = str(nutrition.get("source", "nutrition")).strip() or "nutrition"
+            if calories is not None and protein is not None:
+                nutrition_note = f" {source.upper()} data indicates about {calories} kcal and {protein} g protein per 100g."
         return (
             f"Detected emotion is '{emotion}', and '{food_name}' is tagged for moods: {mood_tags}. "
             f"It suits the requested {time_of_day} timing via its {time_phrase} meal slot, follows {cuisine} cuisine, "
